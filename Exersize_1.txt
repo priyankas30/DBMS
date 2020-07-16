@@ -1,3 +1,7 @@
+
+									Excersize -1
+									
+
 Q.1) Create the table SEMP with the following structure:-
 
 
@@ -65,7 +69,7 @@ create table SUPPLIER_PARTS_PROJECT(
 	Qty int(10)
 );
 
-Sample data for S# column:- ‘S1’, ‘S2’, ‘S3’, etc.
+Sample data for S# column:- â€˜S1â€™, â€˜S2â€™, â€˜S3â€™, etc.
 
 insert into supplier values('S1','Priyanka',10,'London');
 insert into SUPPLIER values('S2','Nidhi',20,'Paris');
@@ -74,7 +78,7 @@ insert into supplier values('S3','Sanket',30,'Athens');
 
 
 
-Sample data for S# column:- ‘P1’, ‘P2’, ‘P3’, etc.
+Sample data for S# column:- â€˜P1â€™, â€˜P2â€™, â€˜P3â€™, etc.
 
 insert into Parts values('P1','Shubham','Yellow',12,'London');
 insert into parts values('P2','Rahul','Red',13,'Athens');
@@ -83,7 +87,7 @@ insert into parts values('P3','Pravin','Pink',15,'London');
 
 
 
-Sample data for S# column:- ‘J1’, ‘J2’, ‘J3’, etc.
+Sample data for S# column:- â€˜J1â€™, â€˜J2â€™, â€˜J3â€™, etc.
 
 insert into Projects values('J1','Rohan','Athens');
 insert into projects values('J2','Ritesh','Philadelphia');
@@ -100,7 +104,7 @@ Q.6) Display only the S# and SNAME fields from the S table.
 Ans:-select `S#`, Sname from supplier;
 
 
-Q.7) Display the PNAME and COLOR from the P table for the CITY=”London”.
+Q.7) Display the PNAME and COLOR from the P table for the CITY=â€Londonâ€.
 
 Ans:- select Pname, Color from parts where city='London';
 
