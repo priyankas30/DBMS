@@ -1,0 +1,157 @@
+Q.1) Create the table SEMP with the following structure:-
+
+
+create table SEMP(
+EMPNO char(4),
+EMPNAME char(20),
+BASIC float(9,2),
+DEPTNO char(2),
+DEPTHEAD char(4)
+);
+
+Q.2)Create the table SDEPT with the following structure:-
+
+create table SDEPT(
+DEPTNO char(2),
+DEPTNAME char(15)
+);
+
+Q.3)Insert into the SDEPT table the following values:-
+ 
+insert into SDEPT values(10,'Development');
+insert into SDEPT values(20,'Training');
+
+Q.4)Insert into the SEMP table the following values:-
+
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
+values(0001,'SuNIL',6000,10,NULL);
+
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
+values(0002,'Hiren',8000,20,NULL);
+
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
+values(0003,'Ali',4000,10,0001);
+
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
+values(0004,'George',6000,NULL,0002);
+
+Q.5) Create S, P, J, SPJ tables as specified below and insert a few rows in each table:
+
+create table SUPPLIER(
+	`S#` char(10),
+	Sname varchar(10),
+	Status int(10),
+	City varchar(20)
+);
+
+create table PARTS(
+	`P#` char(10),
+	Pname varchar(10),
+	Color varchar(10),
+	Weight int(10),
+	City varchar(20)
+);
+
+create table PROJECTS(
+	`J#` char(10),
+	Jname varchar(10),
+	City varchar(20)
+);
+
+create table SUPPLIER_PARTS_PROJECT(
+	`S#` char(10),
+	`P#` char(10),
+	`J#` char(10),
+	Qty int(10)
+);
+
+Sample data for S# column:- ‘S1’, ‘S2’, ‘S3’, etc.
+
+insert into supplier values('S1','Priyanka',10,'London');
+insert into SUPPLIER values('S2','Nidhi',20,'Paris');
+insert into supplier values('S3','Sanket',30,'Athens');
+
+
+
+
+Sample data for S# column:- ‘P1’, ‘P2’, ‘P3’, etc.
+
+insert into Parts values('P1','Shubham','Yellow',12,'London');
+insert into parts values('P2','Rahul','Red',13,'Athens');
+insert into parts values('P3','Pravin','Pink',15,'London');
+
+
+
+
+Sample data for S# column:- ‘J1’, ‘J2’, ‘J3’, etc.
+
+insert into Projects values('J1','Rohan','Athens');
+insert into projects values('J2','Ritesh','Philadelphia');
+insert into projects values('J3','Prathmesh','Paris');
+
+
+Q.5) Display all the data from the S table.
+
+ans:- select * from supplier;
+
+
+Q.6) Display only the S# and SNAME fields from the S table.
+
+Ans:-select `S#`, Sname from supplier;
+
+
+Q.7) Display the PNAME and COLOR from the P table for the CITY=”London”.
+
+Ans:- select Pname, Color from parts where city='London';
+
+
+Q.8) Display all the Suppliers from London.
+
+Ans:-select Sname from supplier where city='London';
+
+
+
+Q.9) Display all the Suppliers from Paris or Athens?
+
+Ans:-select Sname from supplier where city='Paris' Or city='Athens';
+
+
+Q.10) Display all the Projects in Athens.
+Ans:-select * from projects where city='Athens';
+
+Q.11)Display all the Partnames with the weight between 12 and 14 (inclusive of both).
+Ans:- select Pname from parts where Weight  Between 12 AND 14;
+
+Q.12)Display all the Suppliers with a Status greater than or equal to 20.
+Ans:- select Sname from supplier where Status >=20;
+
+Q13)13. Display all the Suppliers except the Suppliers from London.
+Ans:-  select Sname from supplier where city!='London';
+
+Q.14. Display only the Cities from where the Suppliers come from.
+Ans:- select city  from supplier;
+
+Q.15)Assuming that the Part Weight is in GRAMS, display the same in
+MILLIGRAMS and KILOGRAMS.
+Ans:-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
