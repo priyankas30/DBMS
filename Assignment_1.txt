@@ -6,7 +6,8 @@ Name:Priyanka Suryavanshi
 ID:  200240320081
 
 
-**************************CREATE TABLE SALESPERSON*************************************************************
+
+Q.1) Create Table Salespeople with following atttributes.
 
 create table SALESPEOPLE(
 Snum int (4),
@@ -15,7 +16,18 @@ City varchar(10),
 Comm float(3,2)
 );
 
-*********************CREATE TABLE CUSTOMERS**************************************************************************
+
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| Snum  | int(4)      | YES  |     | NULL    |       |
+| Sname | varchar(10) | YES  |     | NULL    |       |
+| City  | varchar(10) | YES  |     | NULL    |       |
+| Comm  | float(3,2)  | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+
+Q.2) Create Table customers with following atttributes.
+
 create table CUSTOMERS(
 	Cnum int(4),
 	Cname varchar(10),
@@ -24,7 +36,19 @@ create table CUSTOMERS(
 	Snum int(4)
 );
 
-**************************CREATE TABLE ORDERS**************************************************************************
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| Cnum   | int(4)      | YES  |     | NULL    |       |
+| Cname  | varchar(10) | YES  |     | NULL    |       |
+| City   | varchar(10) | YES  |     | NULL    |       |
+| Rating | int(4)      | YES  |     | NULL    |       |
+| Snum   | int(4)      | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+
+
+Q.3) Create Table orders with following atttributes.
+
 create table ORDERS(
 	Onum int(4),
 	Amt float(7,2),
@@ -33,17 +57,38 @@ create table ORDERS(
 	Sum int(4)
 );
 
++-------+------------+------+-----+---------+-------+
+| Field | Type       | Null | Key | Default | Extra |
++-------+------------+------+-----+---------+-------+
+| Onum  | int(4)     | YES  |     | NULL    |       |
+| Amt   | float(7,2) | YES  |     | NULL    |       |
+| Odate | date       | YES  |     | NULL    |       |
+| Cnum  | int(4)     | YES  |     | NULL    |       |
+| Snum  | int(11)    | YES  |     | NULL    |       |
++-------+------------+------+-----+---------+-------+
 
-***********************INSERT VALUES INTO SALESPEOPLE TABLE************************************************************
-
+Q.4) Insert values in table salespeople.
+ 
 insert into SALESPEOPLE values(1002, 'Serres','San Jose',.13); 
 insert into SALESPEOPLE values(1004, 'Motika','London',.11); 	
 insert into SALESPEOPLE values(1007, 'Rifkin','Barcelona',.15); 
 insert into SALESPEOPLE values(1003, 'Axelrod','New York',.10); 
 insert into SALESPEOPLE values(1000, 'Peel','London',.12); 
 
++------+---------+-----------+------+
+| Snum | Sname   | City      | Comm |
++------+---------+-----------+------+
+| 1001 | Peel    | London    | 0.12 |
+| 1002 | Serres  | San Jose  | 0.13 |
+| 1004 | Motika  | London    | 0.11 |
+| 1007 | Rifkin  | Barcelona | 0.15 |
+| 1003 | Axelrod | New York  | 0.10 |
+| 1003 | Axelrod | New York  | 0.10 |
++------+---------+-----------+------+
 
-************************INSERT VALUES INTO CUSTOMERTS TABLE*********************************************************
+
+
+Q.5) Insert values in table customers.
 
 insert into customersvalues(2001,'Hoffman','London',100,1001);
 insert into customers values(2002, 'Giovanni','Rome',200, 1003);
@@ -53,16 +98,45 @@ insert into customers values(2006,'Clemens','London',100,1001);
 insert into customers values(2008,'Cisneros','San Jose',300,1007);
 insert into customers values(2007,'Pereira','Rome',100,1004);
 
-***********************INSERT VALUES INTO ORDERS***********************************************
++------+----------+----------+--------+------+
+| Cnum | Cname    | City     | Rating | Snum |
++------+----------+----------+--------+------+
+| 2001 | Hoffman  | London   |    100 | 1001 |
+| 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2003 | Liu      | San Jose |    200 | 1002 |
+| 2004 | Grass    | Berline  |    300 | 1002 |
+| 2006 | Clemens  | London   |    100 | 1001 |
+| 2008 | Cisneros | San Jose |    300 | 1007 |
+| 2007 | Pereira  | Rome     |    100 | 1004 |
++------+----------+----------+--------+------+
 
-insert into orders values(3001,18.69,'1990-03-10,2008,1007);
-insert into orders values(3003,767.19,'1990-03-10',2001,1001);
-insert into orders values(3002,1900.10,'1990-03-10',2007,1004);
-insert into orders values(3005,5160.45,'1990-03-10',2003,1002);
-insert into orders values(3006,1098.16,'1990-03-10',2008,1007);
-insert into orders values(3009,1713.23,'1990-04-10',2002,1003);
-insert into orders values(3007,75.75,'1990-04-10',2004,1002);
-insert into orders values(3008,4723.00,'1990-05-10',2006,1006);
-insert into orders values(3010,1309.95,'1990-06-10',2004,1002);
-insert into orders values(3011,9891.88,'1990-06-10',2006,1001);
 
+Q.6) Insert values in table orders.
+
+insert into orders values
+(3001, 18.69, '1990-10-03' , 2008, 1007),
+(3003, 767.19, '1990-10-03' , 2001, 1001),
+(3002,1900.10,'1990-10-03',2007,1004),
+(3005,5160.45,'1990-10-03',2003,1002),
+(3006,1098.16,'1990-10-03',2008,1007),
+(3009,1713.23,'1990-10-04',2002,1003),
+(3007,75.75, '1990-10-04',2004,1002),
+(3008,4723.00,'1990-10-05',2006,1006),
+(3010,1309.95,'1990-10-06',2004,1002),
+(3011,9891.88,'1990-10-06',2006,1001);
+
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Sum  |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1006 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+

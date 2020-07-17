@@ -1,7 +1,3 @@
-
-									Excersize -1
-									
-
 Q.1) Create the table SEMP with the following structure:-
 
 
@@ -24,6 +20,13 @@ Q.3)Insert into the SDEPT table the following values:-
  
 insert into SDEPT values(10,'Development');
 insert into SDEPT values(20,'Training');
++--------+-------------+
+| DEPTNO | DEPTNAME    |
++--------+-------------+
+| 10     | Development |
+| 20     | Training    |
++--------+-------------+
+
 
 Q.4)Insert into the SEMP table the following values:-
 
@@ -38,6 +41,14 @@ values(0003,'Ali',4000,10,0001);
 
 insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
 values(0004,'George',6000,NULL,0002);
++-------+---------+---------+--------+----------+
+| EMPNO | EMPNAME | BASIC   | DEPTNO | DEPTHEAD |
++-------+---------+---------+--------+----------+
+| 1     | SuNIL   | 6000.00 | 10     | NULL     |
+| 2     | Hiren   | 8000.00 | 20     | NULL     |
+| 3     | Ali     | 4000.00 | 10     | 1        |
+| 4     | George  | 6000.00 | NULL   | 2        |
++-------+---------+---------+--------+----------+
 
 Q.5) Create S, P, J, SPJ tables as specified below and insert a few rows in each table:
 
@@ -69,31 +80,49 @@ create table SUPPLIER_PARTS_PROJECT(
 	Qty int(10)
 );
 
-Sample data for S# column:- â€˜S1â€™, â€˜S2â€™, â€˜S3â€™, etc.
+Sample data for S# column:- ‘S1’, ‘S2’, ‘S3’, etc.
 
 insert into supplier values('S1','Priyanka',10,'London');
 insert into SUPPLIER values('S2','Nidhi',20,'Paris');
 insert into supplier values('S3','Sanket',30,'Athens');
 
 
+------+----------+--------+--------+
+| S#   | Sname    | Status | City   |
++------+----------+--------+--------+
+| S1   | Priyanka |     10 | London |
+| S2   | Nidhi    |     20 | Paris  |
+| S3   | Sanket   |     30 | Athens |
++------+----------+--------+--------+
 
-
-Sample data for S# column:- â€˜P1â€™, â€˜P2â€™, â€˜P3â€™, etc.
+Sample data for S# column:- ‘P1’, ‘P2’, ‘P3’, etc.
 
 insert into Parts values('P1','Shubham','Yellow',12,'London');
 insert into parts values('P2','Rahul','Red',13,'Athens');
 insert into parts values('P3','Pravin','Pink',15,'London');
 
 
++------+---------+--------+--------+--------+
+| P#   | Pname   | Color  | Weight | City   |
++------+---------+--------+--------+--------+
+| P1   | Shubham | Yellow |     12 | London |
+| P2   | Rahul   | Red    |     13 | Athens |
+| P3   | Pravin  | Pink   |     15 | London |
++------+---------+--------+--------+--------+
 
-
-Sample data for S# column:- â€˜J1â€™, â€˜J2â€™, â€˜J3â€™, etc.
+Sample data for S# column:- ‘J1’, ‘J2’, ‘J3’, etc.
 
 insert into Projects values('J1','Rohan','Athens');
 insert into projects values('J2','Ritesh','Philadelphia');
 insert into projects values('J3','Prathmesh','Paris');
 
-
++------+-----------+--------------+
+| J#   | Jname     | City         |
++------+-----------+--------------+
+| J1   | Rohan     | Athens       |
+| J2   | Ritesh    | Philadelphia |
+| J3   | Prathmesh | Paris        |
++------+-----------+--------------+
 Q.5) Display all the data from the S table.
 
 ans:- select * from supplier;
@@ -104,41 +133,87 @@ Q.6) Display only the S# and SNAME fields from the S table.
 Ans:-select `S#`, Sname from supplier;
 
 
-Q.7) Display the PNAME and COLOR from the P table for the CITY=â€Londonâ€.
+Q.7) Display the PNAME and COLOR from the P table for the CITY=”London”.
 
 Ans:- select Pname, Color from parts where city='London';
++---------+--------+
+| Pname   | Color  |
++---------+--------+
+| Shubham | Yellow |
+| Pravin  | Pink   |
++---------+--------+
 
 
 Q.8) Display all the Suppliers from London.
 
 Ans:-select Sname from supplier where city='London';
 
-
+----------+
+| Sname    |
++----------+
+| Priyanka |
++----------+
 
 Q.9) Display all the Suppliers from Paris or Athens?
 
 Ans:-select Sname from supplier where city='Paris' Or city='Athens';
-
+--------+
+| Sname  |
++--------+
+| Nidhi  |
+| Sanket |
++--------+
 
 Q.10) Display all the Projects in Athens.
 Ans:-select * from projects where city='Athens';
+------+-------+--------+
+| J#   | Jname | City   |
++------+-------+--------+
+| J1   | Rohan | Athens |
++------+-------+--------+
 
 Q.11)Display all the Partnames with the weight between 12 and 14 (inclusive of both).
 Ans:- select Pname from parts where Weight  Between 12 AND 14;
++---------+
+| Pname   |
++---------+
+| Shubham |
+| Rahul   |
++---------+
 
 Q.12)Display all the Suppliers with a Status greater than or equal to 20.
 Ans:- select Sname from supplier where Status >=20;
++--------+
+| Sname  |
++--------+
+| Nidhi  |
+| Sanket |
++--------+
+
 
 Q13)13. Display all the Suppliers except the Suppliers from London.
 Ans:-  select Sname from supplier where city!='London';
++--------+
+| Sname  |
++--------+
+| Nidhi  |
+| Sanket |
++--------+
+
 
 Q.14. Display only the Cities from where the Suppliers come from.
 Ans:- select city  from supplier;
 
 Q.15)Assuming that the Part Weight is in GRAMS, display the same in
 MILLIGRAMS and KILOGRAMS.
-Ans:-
-
+Ans:-select weight*1000 as "milligrams",Weight from parts;
++------------+--------+
+| milligrams | Weight |
++------------+--------+
+|      12000 |     12 |
+|      13000 |     13 |
+|      15000 |     15 |
++------------+--------+
 
 
 
