@@ -1,0 +1,58 @@
+			EXCERSIZE 2
+
+
+
+Q.1)Display the Supplier table in the descending order of CITY.
+Ans:-
+select city from supplier order by city desc;
++--------+
+| city   |
++--------+
+| Paris  |
+| London |
+| Athens |
++--------+
+
+Q.2. Display the Part Table in the ascending order of CITY and within the city in the ascending order of Part names.
+Ans:-
+select pname,city from parts order by city,pname;
++---------+--------+
+| pname   | city   |
++---------+--------+
+| Rahul   | Athens |
+| Pravin  | London |
+| Shubham | London |
++---------+--------+
+
+Q.3. Display all the Suppliers with a status between 10 and 20.
+Ans:- select sname from supplier where status between 10 and 20;
++----------+
+| sname    |
++----------+
+| Priyanka |
+| Nidhi    |
++----------+
+
+
+Q.4. Display all the Parts and their Weight, which are not in the range of 10 and 15.
+Ans:-
+  select pname, weight from parts where weight Not between 10 and 15;
+  Empty set because weight is 12,13,15. No perticular entry for this query so Output is EMPTY SET
+
+Q.5. Display all the Part names starting with the letter ‘S’.
+Ans:-select pname from parts where pname like 'A%';
+
+Q.6. Display all the Suppliers, belonging to cities starting with the letter ‘L’.
+Ans:-select sname from supplier where city like 'L%';
++----------+
+| sname    |
++----------+
+| Priyanka |
++----------+
+
+Q.7. Display all the Projects, with the third letter in JNAME as ‘n’.
+Ans:-
+select jname from projects where jname like '__n%';
+
+
+
