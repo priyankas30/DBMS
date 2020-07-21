@@ -1,0 +1,49 @@
+                   Assignment –7
+Summarizing Data with Aggregate Functions.
+
+1) Write a query that counts all orders for October 3.
+Ans:  select count(Onum )from orders where Odate='1990-10-03';
++--------------+
+| count(Onum ) |
++--------------+
+|            5 |
++--------------+
+
+
+2) Write a query that counts the number of different non-NULL city values in the Customers table.
+
+Ans: select  count(city) from customers where City is not Null;
+
+3) Write a query that selects each customer’s smallest order.
+Ans:select min(amt)from orders;
++----------+
+| min(amt) |
++----------+
+|    18.69 |
++----------+
+
+4) Write a query that selects the first customer, in alphabetical order, whose name begins with G.
+Ans : select Cname from customers where  Cname like 'G%' order by cname limit 1 ;
+
++----------+
+| Cname    |
++----------+
+| Giovanni |
++----------+
+
+5) Write a query that selects the highest rating in each city.
+Ans: select  distinct city,max(rating) from  customers;
++--------+-------------+
+| city   | max(rating) |
++--------+-------------+
+| London |         300 |
++--------+-------------+
+
+6) Write a query that counts the number of salespeople registering orders for each day. (If a salesperson has more than one order on a given day, he or she should be counted only once.).
+Ans:
+ select count( distinct odate,snum)from orders;
++-----------------------------+
+| count( distinct odate,snum) |
++-----------------------------+
+|                           9 |
++-----------------------------+
