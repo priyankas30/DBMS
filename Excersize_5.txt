@@ -1,0 +1,134 @@
+	            SQL Exercise 5
+
+
+1. Display the Supplier name and the Quantity sold.
+Ans: select sname,Qty from supplier, supplier_parts_project where supplier.`s#`= supplier_parts_project.`s#` group by qty;
++----------+------+
+| sname    | Qty  |
++----------+------+
+| Priyanka |  100 |
+| Nidhi    |  200 |
+| Sanket   |  250 |
++----------+------+
+
+Q.2. Display the Part name and Quantity sold.
+
+Ans: select pname,qty from parts,supplier_parts_project where parts.`p#`=supplier_parts_project.`p#` group by qty;
++---------+------+
+| pname   | qty  |
++---------+------+
+| Shubham |  100 |
+| Rahul   |  200 |
+| Pravin  |  250 |
++---------+------+
+
+Q.3. Display the Project name and Quantity sold.
+
+Ans: select jname,qty from projects,supplier_parts_project where projects.`j#`=supplier_parts_project.`j#` group by qty;
++-----------+------+
+| jname     | qty  |
++-----------+------+
+| Rohan     |  100 |
+| Ritesh    |  200 |
+| Prathmesh |  250 |
++-----------+------+
+
+Q.4. Display the Supplier name, Part name, Project name and Quantity.
+
+ans:  select sname,pname, jname,Qty from supplier,parts,projects,supplier_parts_project where supplier_parts_project.`s#`=supplier.`s#` and  supplier_parts_project.`p#`=parts.`p#`  and supplier_parts_project.`j#`= projects.`j#` group by qty;
++----------+---------+-----------+------+
+| sname    | pname   | jname     | Qty  |
++----------+---------+-----------+------+
+| Priyanka | Shubham | Rohan     |  100 |
+| Nidhi    | Rahul   | Ritesh    |  200 |
+| Sanket   | Pravin  | Prathmesh |  250 |
++----------+---------+-----------+------+
+
+Q,5. Display the Supplier name, Supplying Parts to a Project in the same City.
+
+Ans:
+
+
+
+ Q.6. Display the Part name that is ‘Red’ is color, and the Quantity sold.
+
+Ans: select pname,qty,color from parts, supplier_parts_project  where supplier_parts_project.`p#`=parts.`p#`  and color='Red' group by qty;
++-------+------+-------+
+| pname | qty  | color |
++-------+------+-------+
+| Rahul |  200 | Red   |
++-------+------+-------+
+
+Q.7. Display all the Quantity sold by Suppliers with the Status = 20.
+
+ans:  select sname,qty,status from supplier, supplier_parts_project where  supplier_parts_project.`s#`=supplier.`s#` and status=20; group nu qty;
++-------+------+--------+
+| sname | qty  | status |
++-------+------+--------+
+| Nidhi |  200 |     20 |
++-------+------+--------+
+
+Q.8. Display all the Parts and Quantity with a Weight > 14.
+ 
+ans: select pname,qty,weight from supplier_parts_project, parts where supplier_parts_project.`p#` =parts.`p#` and weight>14 group by qty;
++--------+------+--------+
+| pname  | qty  | weight |
++--------+------+--------+
+| Pravin |  250 |     15 |
++--------+------+--------+
+
+Q.9. Display all the Project names and City, which has bought more than 500 Parts.
+
+Ans: select jname,city,qty from  supplier_parts_project,projects where  supplier_parts_project.`j#`=projects.`j#` and  qty>200 group by qty;
++-----------+-------+------+
+| jname     | city  | qty  |
++-----------+-------+------+
+| Prathmesh | Paris |  250 |
++-----------+-------+------+
+
+Q.Display all the Part names and Quantity sold that have a Weight less than 15.
+select pname,qty,weight from supplier_parts_project, parts where supplier_parts_project.`p#` =parts.`p#` and weight<15 group by qty;
++---------+------+--------+
+| pname   | qty  | weight |
++---------+------+--------+
+| Shubham |  100 |     12 |
+| Rahul   |  200 |     13 |
++---------+------+--------+
+
+Q.11. Display all the Employee names and the name of their Managers.
+
+Ans:select a.ename,b.ename from emp a,emp b where a.mgr=b.empno;
++--------+-------+
+| ename  | ename |
++--------+-------+
+| Ali    | Arun  |
+| Kiran  | Arun  |
+| Jack   | Arun  |
+| Arun   | Jack  |
+| Thomas | Jack  |
++--------+-------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ select concat(first_name,' ',last_name),country_name from employees,departments,locations,countries where  employees.manager_id=departments.manager_id and departments.location_id=locations.location_id and locations.country_id=countries.country_id having country_name='united states of america';
