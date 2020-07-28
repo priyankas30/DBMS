@@ -25,15 +25,83 @@ select avg(weight) from parts;
 +-------------+
 |     13.3333 |
 +-------------+
-4. Display the total Quantity sold for part ‘P1’.
+
+4. Display the total Quantity sold for part â€˜P1â€™.
+Ans: select `p#` Part_P1,qty from supplier_parts_project where `p#`='P1' group by `p#`;
++---------+------+
+| Part_P1 | qty  |
++---------+------+
+| P1      |  100 |
++---------+------+
+
 5. Display the total Quantity sold for each part.
+Ans:
+	select `p#` PartsName ,sum(qty) from supplier_parts_project  group by `p#`;
++-----------+----------+
+| PartsName | sum(qty) |
++-----------+----------+
+| P1        |      100 |
+| P2        |      200 |
+| P3        |      250 |
++-----------+----------+
+
 6. Display the average Quantity sold for each part.
+ Ans:  select `p#`,avg(qty) from supplier_parts_project  group by `p#`;
++------+----------+
+| p#   | avg(qty) |
++------+----------+
+| P1   | 100.0000 |
+| P2   | 200.0000 |
+| P3   | 250.0000 |
++------+----------+
+
 7. Display the maximum Quantity sold for each part, provided the maximum Quantity is greater than 800.
+Ans: select max(qty)from supplier_parts_project group by(`P#`) having max(qty) > 200;
++----------+
+| max(qty) |
++----------+
+|      250 |
++----------+
+
+
 8. Display the Status and the count of Suppliers with that Status.
+Ans: 	select status,count(status) from supplier group by `S#`;
++--------+---------------+
+| status | count(status) |
++--------+---------------+
+|     10 |             1 |
+|     20 |             1 |
+|     30 |             1 |
+|     30 |             1 |
++--------+---------------+
+
 9. Display the count of Projects going on in different cities.
+ans:
+select city,count(jname) from projects group by `city`;
++--------------+--------------+
+| city         | count(jname) |
++--------------+--------------+
+| Athens       |            1 |
+| Philadelphia |            1 |
+| Paris        |            1 |
+| London       |            3 |
++--------------+--------------+
+
 10. What is the difference between COUNT(Status) and COUNT(*) ?
+ans count(*) counts the rows in your table.
+count(status) counts the entries in a status column - ignoring null values.
+
 11. Display the Status and the Count of Suppliers with that Status in the following format as shown below:-
 Status Count
 Ten 1
 Twenty 2
 Thirty 3
+
+ select case when status = 10 then 'Ten'when status = 20 then 'Twenty'when status = 30 then 'Thirty'when status = 40 then 'Fourty'when status = 50 then 'Fifty'when status = 60 then 'Sixty'end  Status,count(status) as count from supplier group by status;
++--------+-------+
+| Status | count |
++--------+-------+
+| Ten    |     1 |
+| Twenty |     1 |
+| Thirty |     1 |
++--------+-------+
