@@ -1,0 +1,58 @@
+
+							Assignment – 17
+						
+						Constraining the Values of your data.
+
+
+1) Create the Orders table so that all onum values as well as all combinations of cnum and snum are different from one another, and so that NULL values are excluded from the date field.
+
+create table ord(
+onum int(4),
+cnum int(4),
+snum int (4),
+odate date NOT NULL,
+constraint p_k_1 Primary key(onum,cnum,snum)
+);
+
++-------+--------+------+-----+---------+-------+
+| Field | Type   | Null | Key | Default | Extra |
++-------+--------+------+-----+---------+-------+
+| onum  | int(4) | NO   | PRI | NULL    |       |
+| cnum  | int(4) | NO   | PRI | NULL    |       |
+| snum  | int(4) | NO   | PRI | NULL    |       |
+| odate | date   | NO   |     | NULL    |       |
++-------+--------+------+-----+---------+-------+
+
+
+2) Create the Salespeople table so that the default commission is 10% with no NULLS permitted, snum is the primary key, and all names fall alphabetically between A and M, inclusive (assume all names will be uppercase).
+
+create table sales(
+	comm int  default 10 NOT NULL,
+	snum int Primary Key,
+	sname varchar(10) check(substr(upper(sname),1,1) between 'A' and 'M'));
+------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| comm  | int(11)     | NO   |     | 10      |       |
+| snum  | int(11)     | NO   | PRI | NULL    |       |
+| sname | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+
+
+3) Create the Orders table, making sure that the onum is greater than the cnum, and the cnum is greater that the snum. Allow no NULLS in any of these three fields.
+
+ans :
+create table ord1( 
+	onum int(5) primary key,
+	cnum int (5) NOT NULL,
+	snum int (5) Not NULL,
+	constraint on_cn_sn check(onum>cnum and cnum>onum)
+);
+
++-------+--------+------+-----+---------+-------+
+| Field | Type   | Null | Key | Default | Extra |
++-------+--------+------+-----+---------+-------+
+| onum  | int(5) | NO   | PRI | NULL    |       |
+| cnum  | int(5) | NO   |     | NULL    |       |
+| snum  | int(5) | NO   |     | NULL    |       |
++-------+--------+------+-----+---------+-------+
