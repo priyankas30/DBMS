@@ -1,0 +1,36 @@
+			Assignment – 19
+				
+				Views.
+
+1) Create a view that shows all of the customers who have the highest ratings.
+
+Ans: create view v1 as select cname,cnum from  customers where rating=(select max(rating) from customers);
+
+2) Create a view that shows the number of salespeople in each city.
+
+Ans: create view v2 as select count(snum) from salespeople group by city;
+
+
+3) Create a view that shows the average and total orders for each salesperson after his or her name. Assume all names are unique.
+
+Ans: create view v3 as select distinct sname,avg(amt),sum(amt) from orders,salespeople where salespeople.snum=orders.snum group by salespeople.snum;
++---------+-------------+----------+
+| sname   | avg(amt)    | sum(amt) |
++---------+-------------+----------+
+| Peel    |  767.190002 |   767.19 |
+| Serres  | 2182.050049 |  6546.15 |
+| Motika  | 1900.099976 |  1900.10 |
+| Rifkin  |  558.425017 |  1116.85 |
+| Axelrod | 1713.229980 |  3426.46 |
++---------+-------------+----------+
+
+
+
+4) Create a view that shows each salesperson with multiple customers
+
+ans:  create view v4 as select distinct salespeople.snum,salespeople.sname from salespeople,customers where customers.snum=salespeople.snum and customers.snum=(select snum from customers group by snum having count(snum)>1);
++------+--------+
+| snum | sname  |
++------+--------+
+| 1002 | Serres |
++------+--------+
