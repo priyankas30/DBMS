@@ -1,4 +1,4 @@
-Sameer Dehadrai Page: 1
+
 Assignment – 20
 Changing Values through Views.
 1) Which of these views are updateable (will allow DML operations)?
